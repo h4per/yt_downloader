@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% crispy form %}
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="pt-5">
+    <h3 class="mb-4">Качайте mp3 с YouTube и отправьте на почту кому-то</h3>
+    <form action="" method="post">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <a href="{url 'after-bek'}"><button type="submit" class="btn btn-primary mt-4">Скачать и отправить</button></a>
+    </form>
+  </div>
+</div>
+{% endblock %}

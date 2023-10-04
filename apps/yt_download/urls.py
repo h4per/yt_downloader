@@ -1,8 +1,7 @@
 from django.urls import path
-from apps.yt_download.views import YTDownloadAPIView
+from apps.yt_download.views import YTDownloadFormView
 
 
 urlpatterns = [
-    path('download_video/', YTDownloadAPIView.as_view({'post': 'download_video'}), name='download_video'),
+    path('download_video/', YTDownloadFormView.as_view(), name='yt_dl'),
 ]
-
