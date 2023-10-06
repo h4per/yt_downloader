@@ -1,15 +1,15 @@
 from apps.yt_download.forms import YTDownloadForm
 from django.views.generic.edit import FormView
-from django.views.generic.base import TemplateView
+from django.shortcuts import render
 
 class YTDownloadFormView(FormView):
     template_name = "yt/index.html"
     form_class = YTDownloadForm
-    success_url = "/api/download_video/"
+    success_url = "/yt/download_video/"
 
     def form_valid(self, form):
         form.send_email()
         return super().form_valid(form)
 
-class SuccessView(TemplateView):
-    template_name = "yt/after.html"
+def after(request):
+    return render(request, 'after.html')

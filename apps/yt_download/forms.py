@@ -1,6 +1,5 @@
-from apps.yt_download.tasks import send_feedback_email_task
+from apps.yt_download.tasks import work
 from django import forms
-
 
 class YTDownloadForm(forms.Form):
     video_url = forms.CharField(
@@ -11,7 +10,7 @@ class YTDownloadForm(forms.Form):
     )
 
     def send_email(self):
-        send_feedback_email_task.apply_async(args=[
-            self.cleaned_data['video_url'], self.cleaned_data['email']
-            ]
-        )
+        work.apply_async(args=[
+            self.cleaned_data['video_url'],
+            self.cleaned_data['email']
+])

@@ -40,8 +40,6 @@ INSTALLED_APPS = [
     # forms
     'crispy_forms',
     'crispy_bootstrap4',
-    #rest
-    'rest_framework',
     # apps
     'apps.yt_download',
 ]
